@@ -45,10 +45,9 @@ namespace TestProject.Controllers
             if (!_memoryCache.TryGetValue(cacheKey, out CPIData cpiData))
             {
                 var client = _clientFactory.CreateClient();
-                var url = $"{URL}?startYear={year}&endYear={year}"; // Adjust URL as needed
-
+ 
                 // Fetch data from the external API
-                var response = await client.GetAsync(url);
+                var response = await client.GetAsync(URL);
 
                 if (response.IsSuccessStatusCode)
                 {
